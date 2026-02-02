@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Exercices JavaScript - Fonctions</title>
+  <!-- <style>
+    body { font-family: Arial, sans-serif; max-width:900px; margin:2rem auto; padding:0 1rem; }
+    pre { background:#f4f4f4; padding:1rem; border-radius:6px; }
+    button { margin:0.25rem; }
+  </style>
+</head>
+<body>
+  <h1>Exercices JavaScript - Fonctions ✅</h1>
+  <p>Implémentation des fonctions demandées avec des exemples d'utilisation. Ouvrez la console ou cliquez sur <strong>Exécuter les exemples</strong>.</p>
+
+  <div>
+    <button id="runAll">Exécuter les exemples</button>
+    <button id="clear">Effacer la sortie</button>
+  </div>
+
+  <h2>Sortie</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // -----------------------------
+    // Fonctions de manipulation de chaînes
+    // -----------------------------
+
+    // 1) Inverser une chaîne
+    function reverseString(str) {
+      return String(str).split('').reverse().join('');
+    }
+
+    // 2) Compter les caractères
+    function countChars(str) {
+      return String(str).length;
+    }
+
+    // 3) Mise en majuscules de la première lettre de chaque mot
+    function titleCase(sentence) {
+      return String(sentence)
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+    }
+
+    // -----------------------------
+    // Fonctions de tableau
+    // -----------------------------
+
+    // 4) Trouver le maximum
+    function findMax(arr) {
+      if (!Array.isArray(arr) || arr.length === 0) return undefined;
+      return Math.max(...arr);
+    }
+
+    // 5) Trouver le minimum
+    function findMin(arr) {
+      if (!Array.isArray(arr) || arr.length === 0) return undefined;
+      return Math.min(...arr);
+    }
+
+    // 6) Somme d'un tableau
+    function sumArray(arr) {
+      if (!Array.isArray(arr)) return 0;
+      return arr.reduce((acc, v) => acc + Number(v || 0), 0);
+    }
+
+    // 7) Filtrer un tableau (fonction générique acceptant un prédicat)
+    function filterArray(arr, predicate) {
+      if (!Array.isArray(arr)) return [];
+      return arr.filter(predicate);
+    }
+
+    // -----------------------------
+    // Fonctions mathématiques
+    // -----------------------------
+
+    // 8) Factorielle (itérative, valide pour n >= 0 entier)
+    function factorial(n) {
+      n = Number(n);
+      if (!Number.isInteger(n) || n < 0) return NaN;
+      if (n === 0) return 1;
+      let res = 1;
+      for (let i = 2; i <= n; i++) res *= i;
+      return res;
+    }
+
+    // 9) Vérifier si un nombre est premier
+    function isPrime(n) {
+      n = Number(n);
+      if (!Number.isInteger(n) || n <= 1) return false;
+      if (n <= 3) return true;
+      if (n % 2 === 0) return false;
+      const limit = Math.floor(Math.sqrt(n));
+      for (let i = 3; i <= limit; i += 2) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    // 10) Suite de Fibonacci (génère n termes)
+    function fibonacci(n) {
+      n = Number(n);
+      if (!Number.isInteger(n) || n <= 0) return [];
+      const seq = [0];
+      if (n === 1) return seq;
+      seq.push(1);
+      while (seq.length < n) {
+        const len = seq.length;
+        seq.push(seq[len - 1] + seq[len - 2]);
+      }
+      return seq;
+    }
+
+    // -----------------------------
+    // Utilitaires d'affichage
+    // -----------------------------
+    const out = document.getElementById('output');
+    function log(...args) {
+      out.textContent += args.map(a => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' ') + '\n';
+    }
+
+    function clearOutput() {
+      out.textContent = '';
+    }
+
+    // -----------------------------
+    // Exemples d'utilisation
+    // -----------------------------
+    function runExamples() {
+      clearOutput();
+      log('--- Chaînes de caractères ---');
+      const s = 'bonjour le monde';
+      log('Original:', s);
+      log('Inversé:', reverseString(s));
+      log('Nombre de caractères:', countChars(s));
+      log('Title case:', titleCase(s));
+
+      log('\n--- Tableaux ---');
+      const numbers = [3, 7, 2, 9, -1, 10];
+      log('Nombres:', numbers);
+      log('Max:', findMax(numbers));
+      log('Min:', findMin(numbers));
+      log('Somme:', sumArray(numbers));
+      log('Filtrer > 4:', filterArray(numbers, x => x > 4));
+
+      log('\n--- Mathématiques ---');
+      log('5!:', factorial(5));
+      log('isPrime(29):', isPrime(29));
+      log('isPrime(30):', isPrime(30));
+      log('Fibonacci(8):', fibonacci(8));
+
+      log('\nVous pouvez tester d\'autres valeurs depuis la console (ex: reverseString("abc")).');
+    }
+
+    // Événements des boutons
+    document.getElementById('runAll').addEventListener('click', runExamples);
+    document.getElementById('clear').addEventListener('click', clearOutput);
+
+    // Exposer les fonctions globalement pour usage depuis la console
+    window.reverseString = reverseString;
+    window.countChars = countChars;
+    window.titleCase = titleCase;
+    window.findMax = findMax;
+    window.findMin = findMin;
+    window.sumArray = sumArray;
+    window.filterArray = filterArray;
+    window.factorial = factorial;
+    window.isPrime = isPrime;
+    window.fibonacci = fibonacci;
+
+  </script> -->
+  <script src="script.js"></script>
+</body>
+</html>
